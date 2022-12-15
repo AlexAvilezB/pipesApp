@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  constructor( private primeNgConfig: PrimeNGConfig) {
+    
+  }
+
+  ngOnInit(): void {
+    this.primeNgConfig.ripple= true; 
+    
+  }
   
   nombre: string = 'AlEjANdro AViLez';
   valor: number = 1000;

@@ -1,26 +1,38 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-//Prime NG
-import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import { AppComponent } from './app.component';
 
+import { SharedModule } from './shared/shared.module';
+import { AppRouterModule } from './app-router.module';
+import { VentasModule } from './ventas/ventas.module';
 
-
+// Cambiar el locale de la app
+import  localEs from '@angular/common/locales/es-NI';
+import localFr from '@angular/common/locales/fr';
+import  { registerLocaleData }  from '@angular/common';
+registerLocaleData( localEs);
+registerLocaleData( localFr );
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     CommonModule,
-    ButtonModule,
-    CardModule
+    SharedModule,
+    AppRouterModule,
+    VentasModule,
+    BrowserAnimationsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'es-NI',
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
