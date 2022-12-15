@@ -36,6 +36,7 @@ export class MenuComponent implements OnInit {
         },
         {
           label: 'Pipes personalizados',
+          routerLink: 'ordenar',
           icon: 'pi pi-cog'
         }
       ];
